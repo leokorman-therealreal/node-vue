@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Visitor READONLY",
+            "description": "All visitors (default)",
+            "permissions": [
+                {
+                    "resource": "HOMEPAGE",
+                    "bitmask": 1
+                },
+                {
+                    "resource": "USERS",
+                    "bitmask": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Administrator",
+            "description": "Full access",
+            "permissions": [
+                {
+                    "resource": "HOMEPAGE",
+                    "bitmask": 2
+                },
+                {
+                    "resource": "USERS",
+                    "bitmask": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "HR",
+            "description": "Full user access",
+            "permissions": [
+                {
+                    "resource": "HOMEPAGE",
+                    "bitmask": 2
+                },
+                {
+                    "resource": "USERS",
+                    "bitmask": 2
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "HR (associate)",
+            "description": "Readonly user access",
+            "permissions": [
+                {
+                    "resource": "HOMEPAGE",
+                    "bitmask": 2
+                },
+                {
+                    "resource": "USERS",
+                    "bitmask": 1
+                }
+            ]
+        }
+    ]
+}

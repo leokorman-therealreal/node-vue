@@ -11,23 +11,30 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "declaration": true,
     "baseUrl": ".",
-    "types": [
+     "types": [
       "webpack-env"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
+        "server/*"
       ]
     },
     "lib": [
-      "esnext",
+      "es2015", 
+      "es2016",
       "dom",
       "dom.iterable",
       "scripthost"
     ]
   },
   "include": [
+    "global/**/*.ts",
+    "server/**/*.tsx",
+    "server/**/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
