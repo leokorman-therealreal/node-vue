@@ -23,7 +23,7 @@ const store: Module<UserState, RootState> = {
     actions: {
         async users ({ commit, dispatch }, index?: number, page?: number) {
             console.log('VUEX: Users action received');
-            const res: { data: PaginatedResult<User> } = await axios.get('/api/users', {
+            const res: { data: PaginatedResult<User> } = await axios.get('/api/loadUsers', {
                 params: {
                     index,
                     page,

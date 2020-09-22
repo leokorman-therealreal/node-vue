@@ -27,7 +27,7 @@ export default class RoleStore implements Module<RoleState, RootState> {
             };
             if (forceReload || res.data.length === 0) {
                 console.log('VUEX: Fetching fresh roles');
-                res = await axios.get('/api/roles');
+                res = await axios.get('/api/loadRoles');
                 commit('setRoles', res.data);
             } else {
                 console.log('VUEX: Prefetched roles available.');

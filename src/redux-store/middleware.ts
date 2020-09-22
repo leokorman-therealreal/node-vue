@@ -14,7 +14,7 @@ const loadEntries = (store: ReduxStore) => (next: any) => async (action: ActionW
     let nextAction = null;
     console.log(`REDUX: Middleware action received: ${action.type}`);
     if (action.type === ReduxActionType.USERS) {
-        const res: { data: PaginatedResult<User> } = await axios.get('/api/users', {
+        const res: { data: PaginatedResult<User> } = await axios.get('/api/loadUsers', {
             params: {
                 index: Number(action.value.index),
                 page: Number(action.value.page),
@@ -59,7 +59,7 @@ const loadEntries = (store: ReduxStore) => (next: any) => async (action: ActionW
         console.log(`Roles middleware force load: ${action.value.forceReload}`);
         let roles = store.getState().roles || [];
         if (action.value.forceReload || roles.length === 0) {
-            const res: { data: Role[] } = await axios.get('/api/roles');
+            const res: { data: Role[] } = await axios.get('/api/loadRoles');
             roles = res.data || [];
         } else {
             console.log('REDUX: Middleware dispatching  action for fresh roles');

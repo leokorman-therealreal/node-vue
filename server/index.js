@@ -41,7 +41,7 @@ app.use (function (req, res, next) {
 const apiRouter = express.Router();
 apiRouter.use (bodyParser.json());
 
-apiRouter.get ('/users', async (req, res, next) => {
+apiRouter.get ('/loadUsers', async (req, res, next) => {
     try{
         const ret = await loadUsers (req.query.page, req.query.size);
         res.json(ret.data);
@@ -50,7 +50,7 @@ apiRouter.get ('/users', async (req, res, next) => {
     }     
 });
 
-apiRouter.get ('/roles', async (req, res, next) => {
+apiRouter.get ('/loadRoles', async (req, res, next) => {
     try{
         const ret = await loadRoles();
         res.json(ret.data);
@@ -67,6 +67,7 @@ const prefetchRouter = express.Router();
 prefetchRouter.use (bodyParser.json());
 
 prefetchRouter.get ('/users', async function (req, res, next) {
+    console.log ('About to pre-fetch user roles.')
     try{
         const ret = await loadRoles();
         res.locals.roles = ret.data;
@@ -85,7 +86,7 @@ Handlebars.registerHelper ('json',
 
 app.get(`${config.publicPath}*`, (req, res) => {
     const templatePath = path.resolve (path.join (__dirname, './../dist/index.html'));
-    const template = fs.readFileSync (templatePath);  
+    const template = fs.readFileSync (templatePath); 
     const jsonInsert = {
         BASE_URL: `${config.publicPath}public/`,
         CONTEXT: {
