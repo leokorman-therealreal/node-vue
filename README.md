@@ -20,5 +20,20 @@ yarn build
 yarn lint
 ```
 
+### Typescript compiler
+```
+yarn tsc
+```
+
+### Run Node 
+```
+yarn dev
+```
+
+### Build Typescript, run Linter, build for production, run Node
+```
+yarn nd
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
