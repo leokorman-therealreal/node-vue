@@ -61,7 +61,7 @@ export default class Users extends Vue {
         return this.userResult ? this.userResult.results : [];
     }
 }
-</script>>
+</script>
 
 <style lang="scss" scoped>
 @import "Bulma/sass/utilities/_all";
